@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Chatbot</title>
+    <title>AI Chatbot with Excel Analysis</title>
     <style>
         * {
             margin: 0;
@@ -118,21 +118,46 @@
             33% { content: '..'; }
             66% { content: '...'; }
         }
+
+        .file-upload {
+            padding: 10px;
+            background: #f8f9fa;
+            border: 1px dashed #dee2e6;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .file-upload:hover {
+            background: #e9ecef;
+        }
+
+        #file-name {
+            margin-top: 5px;
+            font-size: 0.9em;
+            color: #6c757d;
+        }
     </style>
 </head>
 <body>
     <div class="chat-container">
         <div class="chat-header">
-            <h1>AI Chatbot</h1>
+            <h1>AI Chatbot with Excel Analysis</h1>
         </div>
         <div class="chat-messages" id="chat-messages">
             <div class="message bot-message">
                 <div class="message-content">
-                    Hello! I'm your AI assistant. How can I help you today?
+                    Hello! I'm your AI assistant. I can help you analyze Excel files and answer questions. To analyze an Excel file, just upload it and I'll provide insights about the data.
                 </div>
             </div>
         </div>
         <div class="chat-input">
+            <input type="file" id="file-input" accept=".xlsx,.xls" style="display: none;">
+            <div class="file-upload" onclick="document.getElementById('file-input').click()">
+                Upload Excel File
+                <div id="file-name"></div>
+            </div>
             <input type="text" id="message-input" placeholder="Type your message...">
             <button id="send-button">Send</button>
         </div>
